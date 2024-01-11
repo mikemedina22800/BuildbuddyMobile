@@ -10,7 +10,7 @@ const firebaseConfig = {
   storageBucket: "buildbuddy-bd582.appspot.com",
   messagingSenderId: "167309840961",
   appId: "1:167309840961:web:0e7d0fae7466c344622cc0"
-};
+}
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)

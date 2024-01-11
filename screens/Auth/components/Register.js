@@ -60,9 +60,9 @@ const Register = ({openLogin}) => {
           <TextInput placeholder="Last Name" value={lastName} className={`${inputStyle} my-4`} onChangeText={setLastName} />
           <TextInput placeholder="Email" value={email} className={inputStyle} onChangeText={setEmail} />
           <TextInput placeholder="Phone" value={phone} className={`${inputStyle} my-4`} onChangeText={setPhone} />
-          <View className={`${inputStyle} ${passwordFocus === true && '!border-blue-700'} border-2 flex flex-row w-full justify-between mb-4`}>
-            <TextInput 
-              className="w-fit outline-none" 
+          <Pressable className={`${inputStyle} ${passwordFocus === true && 'border-blue-700'} border-2 flex flex-row w-full justify-between items-center my-4 p-0 !pr-4`}>
+            <TextInput
+              className="outline-none pl-4 py-2 w-72" 
               placeholder="Password" 
               value={password}  
               secureTextEntry={secureTextEntry}
@@ -70,16 +70,11 @@ const Register = ({openLogin}) => {
               onFocus={() => {setPasswordFocus(true)}}
               onBlur={() => {setPasswordFocus(false)}}
             />
-            <View className="flex flex-row items-center">
-              <View className="mr-1 cursor-pointer flex flex-row items-center">
-                {secureTextEntry === true && <Ionicons onPress={toggleVisibility} style={{margin:-5}} name="eye" size={24} />}
-                {secureTextEntry === false && <Ionicons  onPress={toggleVisibility} style={{margin:-5}} name="eye-off" size={24} />}
-              </View>
-            </View>
-          </View>
-          <View className={`${inputStyle} ${confirmPasswordFocus === true && '!border-blue-700'} border-2 flex flex-row w-full justify-between`}>
-            <TextInput 
-              className="w-fit outline-none" 
+            <Ionicons onPress={toggleVisibility} style={{margin:-5}} name={secureTextEntry === true ? 'eye' : 'eye-off'} size={24} />
+          </Pressable>
+          <Pressable className={`${inputStyle} ${passwordFocus === true && 'border-blue-700'} border-2 flex flex-row w-full justify-between items-center my-4 p-0 !pr-4`}>
+            <TextInput
+              className="outline-none pl-4 py-2 w-72" 
               placeholder="Confirm Password" 
               value={confirmPassword}  
               secureTextEntry={secureTextEntry}
@@ -87,13 +82,8 @@ const Register = ({openLogin}) => {
               onFocus={() => {setConfirmPasswordFocus(true)}}
               onBlur={() => {setConfirmPasswordFocus(false)}}
             />
-            <View className="flex flex-row items-center">
-              <View className="mr-1 cursor-pointer flex flex-row items-center">
-                {secureTextEntry === true && <Ionicons onPress={toggleVisibility} style={{margin:-5}} name="eye" size={24} />}
-                {secureTextEntry === false && <Ionicons  onPress={toggleVisibility} style={{margin:-5}} name="eye-off" size={24} />}
-              </View>
-            </View>
-          </View>
+            <Ionicons onPress={toggleVisibility} style={{margin:-5}} name={secureTextEntry === true ? 'eye' : 'eye-off'} size={24} />
+          </Pressable>
           <Text 
             onPress={() => {{setAccountTypeSelect(false); setTextInputs(true)}}} 
             className={`${
@@ -103,7 +93,7 @@ const Register = ({openLogin}) => {
          </Text>
         </>
       }
-      <Text className="font-bold mt-8">Already have an account? Click <Text className="text-blue-600 cursor-pointer" onPress={openLogin}>here</Text> to log in.</Text>
+      <Text className="font-bold mt-8">Already have an account? Tap <Text className="text-blue-600 cursor-pointer" onPress={openLogin}>here</Text> to log in.</Text>
     </View>
   )
 }
